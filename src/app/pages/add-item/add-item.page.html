@@ -1,0 +1,101 @@
+<ion-header class="add-header">
+  <ion-toolbar>
+    <ion-title>✨ Add & Featured</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="add-content">
+  <section class="form-card">
+    <h2>➕ Add Inventory Item</h2>
+
+    <div class="grid-form">
+      <ion-item lines="none">
+        <ion-label position="stacked">Item Name <span>*</span></ion-label>
+        <ion-input [(ngModel)]="item.name" placeholder="Enter item name"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="stacked">Category <span>*</span></ion-label>
+        <ion-select [(ngModel)]="item.category" interface="popover" placeholder="Select category">
+          <ion-select-option *ngFor="let category of categories" [value]="category.value">
+            {{ category.label }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="stacked">Quantity <span>*</span></ion-label>
+        <ion-input type="number" [(ngModel)]="item.quantity" placeholder="Enter quantity"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="stacked">Price <span>*</span></ion-label>
+        <ion-input type="number" [(ngModel)]="item.price" placeholder="$ Enter price"></ion-input>
+      </ion-item>
+    </div>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Supplier <span>*</span></ion-label>
+      <ion-input [(ngModel)]="item.supplier" placeholder="e.g. ABC Company"></ion-input>
+    </ion-item>
+
+    <div class="status-block">
+      <h3>Stock Status <span>*</span></h3>
+      <div class="status-buttons">
+        <ion-button
+          size="small"
+          *ngFor="let status of statuses"
+          [fill]="item.status === status.value ? 'solid' : 'outline'"
+          [color]="item.status === status.value ? 'primary' : 'medium'"
+          (click)="item.status = status.value"
+        >
+          {{ status.label }}
+        </ion-button>
+      </div>
+    </div>
+
+    <div class="featured-block">
+      <h3>Featured Score (optional)</h3>
+      <ion-range min="0" max="100" step="5" snaps="true" pin="true" [(ngModel)]="item.featured"></ion-range>
+      <p>Current value: {{ item.featured }}</p>
+    </div>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Notes (optional)</ion-label>
+      <ion-textarea
+        rows="3"
+        maxlength="200"
+        counter="true"
+        [(ngModel)]="item.notes"
+        placeholder="Optional, up to 200 characters"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" class="submit-btn" (click)="addItem()">
+      + Submit Item
+    </ion-button>
+  </section>
+
+  <section class="recommend-card">
+    <div class="recommend-head">
+      <h3>✨ Featured Recommendations</h3>
+      <ion-button fill="clear" size="small" (click)="refreshRecommendations()">Refresh</ion-button>
+    </div>
+
+    <div class="recommend-list">
+      <div class="recommend-item" *ngFor="let product of recommended">
+        <div class="icon-wrap">
+          <ion-icon [name]="product.icon"></ion-icon>
+        </div>
+        <h4>{{ product.name }}</h4>
+        <p>$ {{ product.price | number:'1.2-2' }}</p>
+        <small>⭐ {{ product.stock }}</small>
+      </div>
+    </div>
+  </section>
+</ion-content>

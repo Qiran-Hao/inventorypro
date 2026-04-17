@@ -7,9 +7,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "cap:sync:android": "npm run build && npx cap sync android",
+    "cap:open:android": "npx cap open android",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
+  },
+  "engines": {
+    "node": ">=20.19.0 || >=22.12.0"
   },
   "private": true,
   "dependencies": {

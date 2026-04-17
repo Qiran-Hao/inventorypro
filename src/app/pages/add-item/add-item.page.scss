@@ -1,0 +1,135 @@
+.add-header ion-toolbar {
+  --background: linear-gradient(120deg, #4b45db, #6f59ff);
+  --color: #fff;
+}
+
+.add-content {
+  --background: #f4f6ff;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 10px;
+  --padding-bottom: 88px;
+}
+
+.form-card,
+.recommend-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 20px rgba(62, 73, 130, 0.08);
+}
+
+.form-card h2 {
+  margin: 0 0 12px;
+  color: #2d3150;
+  font-size: 17px;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+ion-item {
+  --background: #f8f9ff;
+  --border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+ion-label span,
+h3 span {
+  color: #dd2f5b;
+}
+
+.status-block h3,
+.featured-block h3 {
+  margin: 6px 2px 8px;
+  color: #30355b;
+  font-size: 14px;
+}
+
+.status-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.status-buttons ion-button {
+  margin: 0;
+  --border-radius: 12px;
+}
+
+.featured-block p {
+  margin: 0;
+  color: #696f8d;
+  font-size: 12px;
+}
+
+.submit-btn {
+  margin-top: 8px;
+  --border-radius: 12px;
+  --background: linear-gradient(120deg, #5c4bff, #855bff);
+  --background-activated: linear-gradient(120deg, #4f40de, #744ee0);
+}
+
+.recommend-card {
+  margin-top: 12px;
+}
+
+.recommend-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.recommend-head h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #2e3252;
+}
+
+.recommend-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.recommend-item {
+  background: #f8f9ff;
+  border-radius: 12px;
+  padding: 10px 8px;
+}
+
+.icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: #e9ebff;
+}
+
+.icon-wrap ion-icon {
+  color: #5a50eb;
+  font-size: 18px;
+}
+
+.recommend-item h4 {
+  margin: 8px 0 6px;
+  font-size: 12px;
+  min-height: 30px;
+  color: #2e3355;
+}
+
+.recommend-item p {
+  margin: 0;
+  color: #4d43d8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.recommend-item small {
+  color: #7780a3;
+}

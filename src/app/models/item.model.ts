@@ -3,23 +3,23 @@ export enum Category {
   Furniture = 'Furniture',
   Clothing = 'Clothing',
   Tools = 'Tools',
-  Miscellaneous = 'Miscellaneous'
+  Misc = 'Misc'
 }
 
-export enum StockStatus {
-  InStock = 'In stock',
-  LowStock = 'Low stock',
-  OutOfStock = 'Out of stock'
+export enum Status {
+  InStock = 'In Stock',
+  LowStock = 'Low Stock',
+  OutOfStock = 'Out of Stock'
 }
 
 export interface Item {
-  item_id?: number;
-  item_name: string;
+  id?: number;
+  name: string;
   category: Category;
   quantity: number;
   price: number;
-  supplier_name: string;
-  stock_status: StockStatus;
-  featured_item: number;
-  special_note?: string | null;
+  supplier: string;
+  status: Status;
+  featured: number;
+  notes?: string;
 }

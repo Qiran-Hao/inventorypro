@@ -1,0 +1,43 @@
+<ion-header class="privacy-header">
+  <ion-toolbar>
+    <ion-title>Privacy & Security</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="privacy-content">
+  <section class="card">
+    <h2>Privacy Statement</h2>
+    <p>
+      InventoryPro stores your records in local app storage for assignment purposes.
+      Data is not uploaded to a cloud service by default.
+    </p>
+  </section>
+
+  <section class="card">
+    <h3>Core Principles</h3>
+    <ion-list>
+      <ion-item lines="none" *ngFor="let principle of principles">
+        <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+        <ion-label>{{ principle }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
+
+  <section class="card">
+    <h3>Security Checklist</h3>
+    <ul>
+      <li *ngFor="let item of checklist">{{ item }}</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3>Contact & Compliance</h3>
+    <p>If this were a production app, users could request data export and deletion via support.</p>
+    <ion-chip color="primary" outline="true">Demo Assignment Build</ion-chip>
+  </section>
+</ion-content>
