@@ -1,0 +1,81 @@
+<ion-header class="inventory-header">
+  <ion-toolbar>
+    <ion-title>Inventory Management</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="refreshItems()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="inventory-content">
+  <ion-searchbar
+    placeholder="Search by item name or supplier"
+    [(ngModel)]="keyword"
+    show-clear-button="focus"
+  ></ion-searchbar>
+
+  <section class="filter-section">
+    <h3>Category (multi-select style)</h3>
+    <div class="chip-row">
+      <ion-chip
+        *ngFor="let category of categories"
+        [class.active-chip]="selectedCategory === category"
+        (click)="selectedCategory = category"
+      >
+        <ion-label>{{ category }}</ion-label>
+      </ion-chip>
+    </div>
+  </section>
+
+  <section class="status-section">
+    <h3>Stock Status</h3>
+    <div class="segment-row">
+      <ion-button
+        size="small"
+        *ngFor="let status of statuses"
+        [fill]="selectedStatus === status ? 'solid' : 'clear'"
+        [color]="selectedStatus === status ? 'primary' : 'medium'"
+        (click)="selectedStatus = status"
+      >
+        {{ status }}
+      </ion-button>
+    </div>
+  </section>
+
+  <section class="summary-card">
+    <div>
+      <p>Total {{ totalCount }} items</p>
+      <small>In Stock {{ inStockCount }} · Low Stock {{ lowStockCount }}</small>
+    </div>
+    <ion-button fill="outline" size="small" (click)="goToAddItem()">Add Item</ion-button>
+  </section>
+
+  <ion-list class="item-list">
+    <ion-item lines="none" *ngFor="let item of filteredItems">
+      <div class="item-leading" slot="start">
+        <ion-icon [name]="item.icon"></ion-icon>
+      </div>
+      <ion-label>
+        <h2>
+          {{ item.name }}
+          <ion-icon *ngIf="item.featured" name="star" class="star"></ion-icon>
+        </h2>
+        <p>{{ item.category }} · {{ item.quantity }} units · {{ item.supplier }}</p>
+        <h3>$ {{ item.price | number:'1.2-2' }}</h3>
+      </ion-label>
+      <div class="item-actions">
+        <ion-badge [class]="getStatusClass(item.status)">
+          {{ item.status }}
+        </ion-badge>
+        <ion-button fill="clear" color="danger" size="small" (click)="removeItem(item.name)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

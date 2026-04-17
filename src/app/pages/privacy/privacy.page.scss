@@ -1,0 +1,57 @@
+.privacy-header ion-toolbar {
+  --background: linear-gradient(120deg, #3c49d6, #5e57ff);
+  --color: #fff;
+}
+
+.privacy-content {
+  --background: #f4f6ff;
+  --padding-top: 12px;
+  --padding-bottom: 86px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 18px rgba(64, 72, 130, 0.08);
+}
+
+.card h2,
+.card h3 {
+  margin: 0 0 10px;
+  color: #2f3552;
+}
+
+.card p {
+  margin: 0;
+  color: #5f6685;
+  line-height: 1.5;
+}
+
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+ion-item {
+  --background: #f8f9ff;
+  --border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+ion-item ion-icon {
+  color: #4d50d1;
+}
+
+ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #5f6685;
+}
+
+li {
+  margin-bottom: 8px;
+}

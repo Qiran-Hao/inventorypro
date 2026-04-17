@@ -1,0 +1,52 @@
+<ion-header class="update-header">
+  <ion-toolbar>
+    <ion-title>Update Inventory</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="showHelp()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="update-content">
+  <section class="panel">
+    <h2>Quick Update</h2>
+    <ion-item lines="none">
+      <ion-label position="stacked">Item Name</ion-label>
+      <ion-input [(ngModel)]="itemName" placeholder="Type exact item name"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="quantity" placeholder="Enter stock quantity"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="updateItem()">Apply Update</ion-button>
+  </section>
+
+  <section class="panel">
+    <h3>Suggested Items</h3>
+    <div class="suggestions">
+      <ion-chip (click)="autofillExample('iPhone 17 Pro', 126)">iPhone 17 Pro</ion-chip>
+      <ion-chip (click)="autofillExample('Wireless Drill Kit', 18)">Wireless Drill Kit</ion-chip>
+      <ion-chip (click)="autofillExample('Sports T-Shirt (XL)', 0)">Sports T-Shirt (XL)</ion-chip>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h3>Recent Updates</h3>
+    <ion-list *ngIf="logs.length > 0; else emptyLogs">
+      <ion-item lines="none" *ngFor="let log of logs">
+        <ion-label>
+          <h4>{{ log.name }}</h4>
+          <p>Quantity: {{ log.quantity }}</p>
+          <small>{{ log.time }}</small>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ng-template #emptyLogs>
+      <p class="hint">No updates yet. Make your first update above.</p>
+    </ng-template>
+  </section>
+</ion-content>
