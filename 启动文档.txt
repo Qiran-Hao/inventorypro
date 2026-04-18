@@ -1,0 +1,7 @@
+进去对应的目录文件夹；
+cd E:\test\PROG2005-A3_inventorypro
+
+Android目录: gradle  jdk用21
+
+npm run cap:sync:android
+npm run cap:open:android

@@ -1,0 +1,6 @@
+cd E:\test\PROG2005-A3_inventorypro
+npm run cap:sync:android
+npm run cap:open:android
+
+
+
